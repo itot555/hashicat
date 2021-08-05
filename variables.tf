@@ -12,12 +12,12 @@ variable "Environment" {
 
 variable "Owner" {
   type    = string
-  default = "masa"
+  default = "itochu"
 }
 
 variable "Project" {
   type    = string
-  default = "project"
+  default = "tfcb"
 }
 
 variable "Team" {
@@ -42,12 +42,13 @@ variable "CostCenter" {
 
 variable "TFC_WORKSPACE_NAME" {
   type    = string
-  default = "ws"
+  default = "hashicat"
 }
-
+/*
 variable "Notification" {
   type = string
 }
+*/
 
 variable "filter" {
   type    = string
@@ -59,21 +60,20 @@ variable "tostop" {
   default = "true"
 }
 
-
 variable "time_period_start" {
   type    = string
-  default = "2020-10-01_00:00"
+  default = "2021-08-05_00:00"
 }
 
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
-  default     = "masa"
+  default     = "itochu"
 }
 
 variable "region" {
   description = "The region where the resources are created."
-  #default     = "ap-northeast-1"
-  default = "us-east-1"
+  default     = "ap-northeast-1"
+  #default = "us-east-1"
 }
 
 variable "address_space" {
@@ -88,7 +88,7 @@ variable "subnet_prefix" {
 
 variable "instance_type" {
   description = "Specifies the AWS instance type."
-  default     = "t2.nano"
+  default     = "t3.micro"
 }
 
 # HashiCat application settings

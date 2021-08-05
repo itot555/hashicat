@@ -1,6 +1,5 @@
 provider "aws" {
-  version = "~> 2.0"
-  region  = var.region
+  region = var.region
 }
 
 locals {
@@ -134,6 +133,11 @@ resource "aws_eip_association" "hashicat" {
   allocation_id = aws_eip.hashicat.id
 }
 
+# User data for web instances
+data "template_file" "web" {
+  template = file("${path.module}/deploy.tpl")
+}
+
 resource "aws_instance" "hashicat" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
@@ -152,6 +156,7 @@ resource "aws_instance" "hashicat" {
     Workspace     = var.TFC_WORKSPACE_NAME
   }
 
+  user_data = base64encode(data.template_file.web.rendered)
 }
 
 resource "tls_private_key" "hashicat" {
@@ -167,7 +172,7 @@ resource "aws_key_pair" "hashicat" {
   public_key = tls_private_key.hashicat.public_key_openssh
 }
 
-
+/*
 module "workspace_budget" {
   source = "app.terraform.io/masa_org/workspace-budget/aws"
 
@@ -193,6 +198,7 @@ module "stop_ec2_instance" {
   }
   tags = local.common_tags
 }
+*/
 
 /*
 provider "aws" {
