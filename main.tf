@@ -1,6 +1,6 @@
 provider "aws" {
   #region = var.region
-  region = asia-northeast-1
+  region = "asia-northeast-1"
 }
 
 locals {
