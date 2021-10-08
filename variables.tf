@@ -70,11 +70,11 @@ variable "prefix" {
   default     = "itochu"
 }
 
-variable "region" {
-  description = "The region where the resources are created."
-  #default     = "ap-northeast-1"
-  #default = "us-east-1"
-}
+#variable "region" {
+#  description = "The region where the resources are created."
+#  #default     = "ap-northeast-1"
+#  #default = "us-east-1"
+#}
 
 variable "address_space" {
   description = "The address space that is used by the virtual network. You can supply more than one address space. Changing this forces a new resource to be created."
