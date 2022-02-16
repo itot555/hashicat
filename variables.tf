@@ -62,7 +62,7 @@ variable "tostop" {
 
 variable "time_period_start" {
   type    = string
-  default = "2022-02-16_00:00"
+  default = "2022-02-16_15:00"
 }
 
 variable "prefix" {
