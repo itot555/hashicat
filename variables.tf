@@ -88,7 +88,7 @@ variable "subnet_prefix" {
 
 variable "instance_type" {
   description = "Specifies the AWS instance type."
-  default     = "t3.micro"
+  default     = "t2.micro"
 }
 
 # HashiCat application settings
